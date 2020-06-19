@@ -11,15 +11,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 1 
-      - uses: actions/setup-python@v1
-        with:
-          python-version: 3.8.3
-      - name: Activate venv
-        run: |
-          python -m venv venv && source venv/bin/activate
-      - name: Where am I?
-        run: |
-          pwd && ls -l
       - uses: docker://pulumi/actions
         with:
           args: up --yes
