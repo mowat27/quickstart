@@ -16,7 +16,7 @@ jobs:
           python-version: 3.8.3
       - name: Activate venv
         run: |
-          python -m venv activate && pip3 install -r requirements.txt
+          python -m venv venv && source venv/bin/activate
       - uses: docker://pulumi/actions
         with:
           args: up --yes
