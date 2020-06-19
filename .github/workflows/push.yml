@@ -14,12 +14,12 @@ jobs:
       - uses: actions/setup-python@v1
         with:
           python-version: 3.8.3
-      - name: Where am I?
-        run: |
-          pwd && ls -l
       - name: Activate venv
         run: |
           python -m venv venv && source venv/bin/activate
+      - name: Where am I?
+        run: |
+          pwd && ls -l
       - uses: docker://pulumi/actions
         with:
           args: up --yes
@@ -27,4 +27,4 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
-          PULUMI_CI: up
+          PULUMI_CI: pwd && ls -ltr && up
