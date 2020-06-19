@@ -13,6 +13,7 @@ jobs:
           fetch-depth: 1
       - uses: docker://pulumi/actions
         run: python -m venv activate      
+      - uses: docker://pulumi/actions
         with:
           args: up --yes
         env:
