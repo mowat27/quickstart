@@ -2,3 +2,5 @@
 venv/
 .vscode/
 activate/
+tmp/
+tmp/*
